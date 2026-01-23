@@ -1,0 +1,99 @@
+#inputTextBoxSection{
+    border: 2px solid black;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#inputTextBoxDiv{
+    position: relative;
+    background-color: skyblue;
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 15rem;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#inputTextBoxSectionCloseBtn{
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+#inputTask{
+    position: relative;
+    width: 90%;
+    height: 1.5rem;
+    border:none;
+    border-radius: 10px;
+    padding: 4px 8px;
+}
+input[type="checkbox"]{
+    margin-right: 1rem;
+}
+#addBtn{
+    padding: 8px 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: gray;
+    color: black;
+    text-shadow:1px 1px #333;
+    margin: 10px 0;
+}
+#saveBtn{
+    display: none;
+    padding: 4px 8px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#tasksContainer{
+    list-style: none;
+    border: 2px solid #000;
+    border-radius: 10px;
+    min-height: 2rem;
+    padding: 30px;
+}
+#tasksContainer li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+#tasksContainer li button{
+    margin-left: 1rem;
+}
+.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+#displaySection {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+#addTaskBtnContainer{
+    display: flex;
+    justify-content: end;
+}
+
+button {
+    padding: 8px 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: gray;
+    color: black;
+    text-shadow:1px 1px #333;
+}
