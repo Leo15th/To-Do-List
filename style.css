@@ -1,99 +1,335 @@
-#inputTextBoxSection{
-    border: 2px solid black;
-    position: fixed;
-    z-index: 999;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
+:root{
+    font-size: 16px;
+    --primary-color: orange;
+    --secondary-color: #eee;
+    --primary-text-color: rgb(255, 255, 255);
+    --secondary-text-color: rgb(71, 71, 71);
+    --small-black-text-shadow: 1px 1px 1px black;
+    --medium-black-text-shadow: 2px 2px 2px black;
+    --big-black-text-shadow: 2px 2px 3px black;
+    --primary-font: monospace;
+    --secondary-font: sans-serif;
+    --primary-box-shadow: 4px 4px 5px #888, -2px 0 5px #888;
 }
-#inputTextBoxDiv{
+*,html,body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -ms-touch-select: none;
+    -webkit-user-select: none;
+    scrollbar-width: none;
+}
+*::-webkit-scrollbar,html::-webkit-scrollbar,body::-webkit-scrollbar{
+    display: none;
+}
+body{
+    background-color: #ccc;
+}
+section{
+    padding: 2rem;
+}
+hr{
+    width: 90%;
+    margin: 0 auto;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
     position: relative;
-    background-color: skyblue;
-    border: 2px solid black;
-    border-radius: 20px;
-    height: 15rem;
-    width: 40rem;
+    color: var(--primary-text-color);
+}
+
+#header-svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    color: var(--primary-color);
+}
+
+header h1{
+    font-size: 2rem;
+    font-family: var(--primary-font);
+    text-shadow: var(--big-black-text-shadow);
+}
+
+header p{
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    text-shadow: var(--medium-black-text-shadow);
+}
+
+#inputSection form{
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#inputTextBoxSectionCloseBtn{
-    background-color: red;
-    color: white;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-}
-#inputTask{
-    position: relative;
-    width: 90%;
-    height: 1.5rem;
-    border:none;
-    border-radius: 10px;
-    padding: 4px 8px;
-}
-input[type="checkbox"]{
-    margin-right: 1rem;
-}
-#addBtn{
-    padding: 8px 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    background-color: gray;
-    color: black;
-    text-shadow:1px 1px #333;
-    margin: 10px 0;
-}
-#saveBtn{
-    display: none;
-    padding: 4px 8px;
-    font-weight: bold;
-    margin: 10px 0;
+    width: 100%;
+    margin: 0 auto;
 }
 
-#tasksContainer{
-    list-style: none;
-    border: 2px solid #000;
-    border-radius: 10px;
-    min-height: 2rem;
-    padding: 30px;
+#inputSection form label{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
 }
-#tasksContainer li{
+
+#inputSection form div{
+    padding: .5rem;
+    display: inline-block;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-#tasksContainer li button{
-    margin-left: 1rem;
-}
-.done {
-  text-decoration: line-through;
-  opacity: 0.6;
+    gap: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    box-shadow: var(--primary-box-shadow);
 }
 
-#displaySection {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-#addTaskBtnContainer{
-    display: flex;
-    justify-content: end;
-}
-
-button {
-    padding: 8px 15px;
-    font-weight: bold;
+#inputSection input{
+    background-color: transparent;
     border: none;
-    border-radius: 10px;
-    background-color: gray;
-    color: black;
-    text-shadow:1px 1px #333;
+    padding: 5px;
+    width: 70%;
+    color: #444;
+    font-weight: bold;
+}
+
+#inputSection input:focus{
+    outline: none;
+    color: #333;
+    font-weight: bold;
+}
+
+#inputSection input::placeholder{
+    color: #888;
+    font-weight: bold;
+}
+
+#inputSection button{
+    background-color: var(--primary-color);
+    padding: .7rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    width: 30%;
+}
+
+#tasks-section{
+    color: var(--secondary-text-color);
+    font-weight: 900;
+    font-family: var(--secondary-font);
+    padding-bottom: 4rem;
+}
+
+#tasks-section h2{
+    margin-bottom: 2rem;
+}
+
+#tasks-section ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#tasks-section ul li{
+    font-size: 1rem;
+    list-style: none;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    gap: .5rem;
+    background-color: var(--secondary-color);
+    box-shadow: var(--primary-box-shadow);
+}
+
+.taskDetails{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 60%;
+}
+
+.checkbox{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.checkbox:checked{
+    background-color: var(--primary-color);
+}
+.checkbox:checked::after{
+    content: "✔";
+    font-weight: 900;
+    position: absolute;
+    left: 3px;
+    color: white;
+    text-shadow: var(--medium-black-text-shadow);
+}
+
+.taskSpan{
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.taskSpan::first-letter{
+    text-transform: uppercase;
+}
+
+.btnHolder{
+    display: flex;
+    gap: .5rem;
+    width: 40%;
+    justify-content: flex-end;
+}
+
+.btn{
+    padding: 0.5rem;
+    text-transform: capitalize;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+}
+
+.showCompletedBtn{
+    background-color: green;
+    display: none;
+}
+
+.editBtn{
+    background-color: var(--primary-color);
+}
+
+.delBtn{
+    background-color: red;
+}
+
+#popupBox{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 100;
+}
+#popupBox form{
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem 1rem;
+    width: 90%;
+    border-radius: 2rem;
+    backdrop-filter: blur(2rem);
+    box-shadow: 0px 3px 4px rgb(200,200,200);
+}
+#popupBox form label{
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--primary-text-color);
+}
+#popupBox form input{
+    font-size: 1rem;
+    border: 1px solid #888;
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    font-weight: bold;
+    color: var(--primary-text-color);
+    text-shadow: var(--medium-black-text-shadow);
+    letter-spacing: 2px;
+}
+#popupBox form input:focus{
+    outline: none;
+    border: 1px solid var(--primary-color);
+}
+
+#popupBox form div{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+#popupBox form div button{
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    border: none;
+    font-weight: bold;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--secondary-color);
+    border-top: 1px solid #aaa;
+}
+
+footer p{
+    display: flex;
+    gap: .5rem;
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    justify-content: center;
+    padding: 1rem;
+    font-weight: bold;
+}
+footer p span svg{
+    color: red;
+}
+
+@media only screen and (min-width: 768px) {
+    section{
+        padding: 2rem 6rem;
+    }
+    hr{
+        width: 85%;
+    }
+    header h1{
+        font-size: 2.5rem;
+    }
+    header p{
+        font-size: 1.2rem;
+    }
+    #inputSection form label{
+        font-size: 1.5rem;
+    }
+    .btnHolder{
+        width: 30%;
+    }
+    #popupBox form{
+        width: 50%;
+    }
 }
