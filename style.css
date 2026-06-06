@@ -104,6 +104,7 @@ header p{
     width: 70%;
     color: #444;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 #inputSection input:focus{

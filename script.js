@@ -259,11 +259,16 @@ taskHolder.addEventListener("change", (c)=>{
 
 //add event listener for save btn
 saveEditBtn.addEventListener("click",()=>{
+    const currentList = currentSpan.closest("li")
+    const index = Array.from(taskHolder.children).indexOf(currentList);
     //close the popup box
     currentSpan.innerText = editInput.value
+    tasks[index].text = editInput.value;
+    save();
+    renderTask();
+
     editBox.style.display= "none"
     currentSpan = null;
-
     document.removeEventListener("keydown", handleKeyDown)
 })
 //add event listener for cancel btn
