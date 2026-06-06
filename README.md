@@ -31,7 +31,7 @@ It allows users to add, edit, delete, and mark tasks as completed, with data sav
 ## 📦 Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Leo15th/To-Do-List.git```
+   git clone https://github.com/Leo15th/To-Do-List.git
 
 ## 📸 Screenshots
 ![App Screenshot](home.png)
